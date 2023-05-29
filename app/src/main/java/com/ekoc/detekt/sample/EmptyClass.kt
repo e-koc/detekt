@@ -1,4 +1,4 @@
 package com.ekoc.detekt.sample
 
-class EmptyClass {
-}
+
+class EmptyClass {}

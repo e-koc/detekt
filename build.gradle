@@ -14,6 +14,11 @@ plugins {
 
 subprojects {
     afterEvaluate {
+        plugins.apply("io.gitlab.arturbosch.detekt")
+        dependencies {
+            detektPlugins(project(":rules"))
+        }
+
         def detektTaskProvider = tasks.named("detekt")
         detektTaskProvider.configure {
             reports {
@@ -25,6 +30,9 @@ subprojects {
                 html.outputLocation.set(file("${project.rootDir.absolutePath}/build/reports/detekt/report.html"))
             }
         }
+
+        if (project.name == "rules") return
         tasks.getByName("preBuild").finalizedBy(detektTaskProvider)
+
     }
 }

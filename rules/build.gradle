@@ -1,0 +1,8 @@
+plugins {
+    id "kotlin"
+    id("io.gitlab.arturbosch.detekt").version("1.22.0")
+}
+
+dependencies {
+    compileOnly "io.gitlab.arturbosch.detekt:detekt-api:1.22.0"
+}
